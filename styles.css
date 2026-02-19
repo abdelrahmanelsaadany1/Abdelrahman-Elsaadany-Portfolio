@@ -1,0 +1,265 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: lightgrey;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Background Video ── */
+.back-vid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  object-fit: cover;
+}
+
+video {
+  outline: none;
+}
+
+/* ── Header ── */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(
+    90deg,
+    rgba(50, 50, 55, 0.4),
+    rgba(40, 40, 45, 0.4)
+  );
+  color: white;
+  height: 100px;
+  padding: 0 30px;
+  z-index: 999;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.left img {
+  width: 40px;
+  margin: 0 15px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.blue-name {
+  color: #30cdcf;
+}
+
+header h1 {
+  font-size: 2.4em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  gap: 11vw;
+  padding: 1vw 2vw;
+  margin: 0;
+  border-radius: 50px;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  width: fit-content;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+header ul li {
+  list-style: none;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  white-space: nowrap;
+}
+
+header ul a {
+  text-decoration: none;
+  color: white;
+}
+
+header ul a:hover {
+  color: #30cdcf;
+}
+
+.box-icons {
+  display: flex;
+  gap: 40px;
+  flex-shrink: 0;
+}
+
+.box-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 22px;
+  border: 2px solid blueviolet;
+  text-decoration: none;
+  color: lightgray;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.box-icons a:hover {
+  transform: scale(1.2);
+  border-color: #30cdcf;
+  color: #30cdcf;
+  box-shadow: 0 0 10px #30cdcf;
+}
+
+/* ── Header Responsive ── */
+@media (max-width: 1200px) {
+  header {
+    padding: 0 20px;
+  }
+  header h1 {
+    font-size: 1.8em;
+  }
+  .left img {
+    width: 35px;
+    margin: 0 10px;
+  }
+  header ul {
+    gap: 5vw;
+    min-width: 250px;
+  }
+  .box-icons {
+    gap: 30px;
+  }
+  .box-icons a {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  header {
+    padding: 0 15px;
+  }
+  header h1 {
+    font-size: 1.4em;
+  }
+  .left img {
+    width: 30px;
+    margin: 0 8px;
+  }
+  header ul {
+    gap: 3vw;
+    padding: 0.8vw 2vw;
+    min-width: 200px;
+  }
+  header ul li {
+    font-size: clamp(0.85rem, 2vw, 1.2rem);
+  }
+  .box-icons {
+    gap: 20px;
+  }
+  .box-icons a {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0 10px;
+    height: 80px;
+  }
+  header h1 {
+    font-size: 1em;
+  }
+  .left img {
+    width: 25px;
+    margin: 0 6px;
+  }
+  header ul {
+    gap: 2vw;
+    padding: 0.5vw 1.5vw;
+    min-width: unset;
+  }
+  header ul li {
+    font-size: clamp(0.65rem, 2vw, 0.9rem);
+  }
+  .box-icons {
+    gap: 12px;
+  }
+  .box-icons a {
+    width: 2rem;
+    height: 2rem;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0 8px;
+    height: 65px;
+  }
+  header h1 {
+    font-size: 0.75em;
+  }
+  .left img {
+    width: 20px;
+    margin: 0 5px;
+  }
+  header ul {
+    display: none;
+  }
+  .box-icons {
+    gap: 10px;
+  }
+  .box-icons a {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 14px;
+    border-width: 1.5px;
+  }
+}
+
+/* ── Spline ── */
+.spline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  mix-blend-mode: lighten;
+  pointer-events: none;
+}
+
+spline-viewer {
+  width: 100%;
+  height: 100%;
+}
